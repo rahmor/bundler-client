@@ -1,0 +1,113 @@
+.App {
+  height: 100vh;
+}
+
+.App-hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
+    url('../../assets/livingroomHero.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 80vh;
+  min-height: 550px;
+  color: white;
+}
+
+.App-title {
+  color: white;
+}
+
+.App-navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.App-header-copy {
+  text-align: center;
+  position: relative;
+  top: 15%;
+}
+
+.App-header-title {
+  font-size: 1.75em;
+}
+
+.App-grey {
+  color: grey;
+  font-size: 1.5em;
+}
+
+.App-background-white {
+  background: white;
+}
+
+.App-cable-provider-panel {
+  text-align: center;
+  margin: 2em 0 2em 0;
+}
+
+.App-cable-provider-heading {
+  font-size: 1.75em;
+  font-weight: 800;
+  color: #9ab878;
+}
+
+.App-cable-images {
+  width: 100%;
+}
+
+.App-devices-panel {
+  text-align: center;
+}
+
+.App-devices-panel-heading-container {
+  padding: 2.5em;
+  background-color: black;
+}
+
+.App-devices-icons {
+  margin: 0 40px 0 40px;
+}
+
+/* Font Awesome built-in style override */
+.fa-5x {
+  font-size: 2em;
+}
+
+.App-channel-tiers-panel {
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .App-header-copy {
+    top: 50%;
+  }
+
+  .App-navbar {
+    margin: 0 5% 0 5%;
+  }
+
+  .App-header-title {
+    font-size: 2.5em;
+  }
+
+  .App-cable-provider-panel {
+    padding: 4em 0 4em 0;
+  }
+
+  .App-cable-provider-heading-container {
+    background-color: #9ab878;
+    padding: 2.5em;
+    border-radius: 6px;
+  }
+
+  .App-cable-provider-heading {
+    font-size: 2.25em;
+    color: white;
+  }
+}

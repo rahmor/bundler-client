@@ -1,0 +1,19 @@
+.AlaCarte-hr {
+  background-color: #e98d24;
+  height: 5px;
+}
+.AlaCarte-channels {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.AlaCarte-form {
+  background-color: rgb(241, 241, 241);
+  padding: 22px;
+}
+
+/* Additions styling to built-in React Bootstrap class */
+.form-label {
+  color: #999;
+  margin: 0;
+}
