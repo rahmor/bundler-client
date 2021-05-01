@@ -43,10 +43,18 @@ const Footer = () => {
           <Col>
             <ul>
               <li>
-                <a href='/' title=''>
+                <a href='/friends' title=''>
                   Friends
                 </a>
                 <ul>
+                  <li>
+                    <a
+                      href='https://rahmor.github.io/rahim-portfolio/'
+                      title=''
+                    >
+                      Rahim
+                    </a>
+                  </li>
                   <li>
                     <a href='http://apple.com/' title=''>
                       Apple
@@ -58,7 +66,9 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a href='https://raspberrypi.org'>Raspberry Pi</a>
+                    <a href='https://raspberrypi.org' title=''>
+                      Raspberry Pi
+                    </a>
                   </li>
                   <li>
                     <a href='https://linux.org/' title=''>
@@ -80,11 +90,6 @@ const Footer = () => {
                       Android
                     </a>
                   </li>
-                  <li>
-                    <a href='http://www.thetvdb.com/' title=''>
-                      Rahim
-                    </a>
-                  </li>
                 </ul>
               </li>
             </ul>
@@ -92,7 +97,7 @@ const Footer = () => {
           <Col>
             <ul>
               <li>
-                <a href='/' title=''>
+                <a href='/social' title=''>
                   Social
                 </a>
                 <ul>

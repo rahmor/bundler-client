@@ -35,10 +35,7 @@ const App = () => {
                   }
                 >
                   <NavDropdown.Item>
-                    <Link to='/login'>Login</Link>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item>
-                    <Link to='/signup'>Sign Up</Link>
+                    <Link to='/alacarte'>Browse Channels</Link>
                   </NavDropdown.Item>
                 </NavDropdown>
                 <Link to='/'>

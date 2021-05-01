@@ -17,11 +17,11 @@ const LoggedOutHeader = () => {
         }
       >
         <NavDropdown.Item>
-          <Link to='/login'>Login</Link>
+          <Link to='/alacarte'>Browse Channels</Link>
         </NavDropdown.Item>
-        <NavDropdown.Item>
+        {/* <NavDropdown.Item>
           <Link to='/signup'>Sign Up</Link>
-        </NavDropdown.Item>
+        </NavDropdown.Item> */}
       </NavDropdown>
       <Link to='/'>
         <h1 className='App-title'>Bundler</h1>
