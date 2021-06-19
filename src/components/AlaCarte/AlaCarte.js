@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import LoggedOutHeader from '../Headers/LoggedOutHeader';
+import LoggedOutHeader from '../Headers/AppHeader';
 import { Navbar, Container, Row, Col, Form } from 'react-bootstrap';
 import Channels from '../Channels/Channels';
 import data from '../../data.js';
 import './AlaCarte.css';
 
-const AlaCarte = () => {
+const AlaCarte = ({ token, setToken }) => {
   const [total, setTotal] = useState(0);
   const [channels, setChannels] = useState({});
   const premium = 5;
@@ -43,7 +43,7 @@ const AlaCarte = () => {
 
   return (
     <>
-      <LoggedOutHeader />
+      <LoggedOutHeader token={token} setToken={setToken} />
       <Navbar
         bg='dark'
         variant='dark'

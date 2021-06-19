@@ -1,9 +1,14 @@
+import { useState } from 'react';
+import TokenService from '../../services/token-service';
 import ProviderPanel from './ProviderPanel';
 import DevicesPanel from './DevicesPanel';
 import AlaCarte from '../AlaCarte/AlaCarte';
 import Footer from '../Footer/Footer';
 import SignUp from '../Users/SignUp';
 import Login from '../Users/Login';
+import PrivateRoute from '../../utils/PrivateRoute';
+import PublicRoute from '../../utils/PublicRoute';
+
 import {
   Navbar,
   NavDropdown,
@@ -15,10 +20,16 @@ import {
 import { Route, Link, Switch } from 'react-router-dom';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import './App.css';
 
 const App = () => {
+  const [token, setToken] = useState(TokenService.hasAuthToken());
+
+  const logOut = () => {
+    TokenService.deleteToken();
+    setToken(false);
+  };
+
   return (
     <div className='App'>
       <Switch>
@@ -34,9 +45,22 @@ const App = () => {
                     />
                   }
                 >
-                  <NavDropdown.Item>
-                    <Link to='/alacarte'>Browse Channels</Link>
-                  </NavDropdown.Item>
+                  {token ? (
+                    <NavDropdown.Item>
+                      <Link onClick={logOut} to='/'>
+                        Log Out
+                      </Link>
+                    </NavDropdown.Item>
+                  ) : (
+                    <>
+                      <NavDropdown.Item>
+                        <Link to='/login'>Log In</Link>
+                      </NavDropdown.Item>
+                      <NavDropdown.Item>
+                        <Link to='/signup'>Sign Up</Link>
+                      </NavDropdown.Item>
+                    </>
+                  )}
                 </NavDropdown>
                 <Link to='/'>
                   <h1 className='App-title'>Bundler</h1>
@@ -67,15 +91,23 @@ const App = () => {
           </main>
           <Footer />
         </Route>
-        <Route path='/login'>
-          <Login />
-        </Route>
-        <Route path='/signup'>
-          <SignUp />
-        </Route>
-        <Route path='/alacarte'>
-          <AlaCarte />
-        </Route>
+        <PublicRoute
+          path='/login'
+          setToken={setToken}
+          component={Login}
+        ></PublicRoute>
+        <PublicRoute
+          path='/signup'
+          setToken={setToken}
+          component={SignUp}
+        ></PublicRoute>
+        <PublicRoute exact path='/alacarte' component={AlaCarte}></PublicRoute>
+        <PrivateRoute
+          path='/alacarte/:id'
+          token={token}
+          setToken={setToken}
+          component={AlaCarte}
+        ></PrivateRoute>
       </Switch>
     </div>
   );
