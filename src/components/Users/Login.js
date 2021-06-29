@@ -1,12 +1,15 @@
+import { useState } from 'react';
 import LoggedOutHeader from '../Headers/AppHeader';
 import AuthApiService from '../../services/auth-api-services';
 import TokenService from '../../services/token-service';
-
 import Footer from '../Footer/Footer';
-import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import './Users.css';
+import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import _ from 'lodash';
 
 const Login = ({ history, setToken }) => {
+  const [error, setError] = useState(null);
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     const { email, password } = evt.target;
@@ -14,6 +17,13 @@ const Login = ({ history, setToken }) => {
       .then((res) => {
         email.value = '';
         password.value = '';
+        if (Object.keys(res)[0] === 'error') {
+          setError(res.error);
+          return;
+        } else if (!(res.authToken === undefined)) {
+          setError('There was an error, please try again');
+          return;
+        }
         TokenService.setToken(res.authToken);
         setToken(true);
         const userId = TokenService.getUserIdFromToken(res.authToken);
@@ -54,6 +64,11 @@ const Login = ({ history, setToken }) => {
                   Log In
                 </Button>
               </Form.Group>
+              {error && (
+                <p className='text-center text-danger'>
+                  {_.startCase(_.toLower(error))}
+                </p>
+              )}
             </Form>
           </Col>
         </Row>
