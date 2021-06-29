@@ -42,6 +42,7 @@ const App = () => {
                     <FontAwesomeIcon
                       icon={faBars}
                       style={{ fontSize: '2.5em', color: 'white' }}
+                      data-testid='hamburger-menu'
                     />
                   }
                 >
