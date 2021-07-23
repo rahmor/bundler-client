@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import LoggedOutHeader from '../Headers/AppHeader';
+import React, { useState } from 'react';
+import AppHeader from '../Headers/AppHeader';
 import AuthApiService from '../../services/auth-api-services';
 import TokenService from '../../services/token-service';
 import Footer from '../Footer/Footer';
@@ -20,7 +20,7 @@ const Login = ({ history, setToken }) => {
         if (Object.keys(res)[0] === 'error') {
           setError(res.error);
           return;
-        } else if (!(res.authToken === undefined)) {
+        } else if (res.authToken === undefined) {
           setError('There was an error, please try again');
           return;
         }
@@ -34,7 +34,7 @@ const Login = ({ history, setToken }) => {
 
   return (
     <div className='Users'>
-      <LoggedOutHeader />
+      <AppHeader />
       <h1 className='text-center font-weight-bold'>LOG IN TO BUNDLER</h1>
       <Container className='Users-border Users-form mt-5 mb-5 '>
         <Row>
@@ -65,7 +65,7 @@ const Login = ({ history, setToken }) => {
                 </Button>
               </Form.Group>
               {error && (
-                <p className='text-center text-danger'>
+                <p className='text-center text-danger' data-testid='error'>
                   {_.startCase(_.toLower(error))}
                 </p>
               )}

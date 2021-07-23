@@ -1,21 +1,19 @@
-import { render, fireEvent, screen } from '@testing-library/react';
+import React from 'react';
+import { render, fireEvent, screen, cleanup } from '@testing-library/react';
 import App from '../components/App/App';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('Logged Out App component', () => {
-  let destroyRender;
-
   beforeEach(() => {
-    let { unmount } = render(
+    render(
       <MemoryRouter initialEntries={['/']}>
         <App />
       </MemoryRouter>
     );
-    destroyRender = unmount;
   });
 
-  afterAll(() => {
-    destroyRender();
+  afterEach(() => {
+    cleanup();
   });
 
   it('should render without crashing', () => {
