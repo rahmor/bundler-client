@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import LoggedOutHeader from '../Headers/AppHeader';
 import { Navbar, Container, Row, Col, Form } from 'react-bootstrap';
 import Channels from '../Channels/Channels';
