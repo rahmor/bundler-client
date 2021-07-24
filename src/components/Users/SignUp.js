@@ -21,7 +21,7 @@ const SignUp = ({ history, setToken }) => {
         if (Object.keys(res)[0] === 'error') {
           setError(res.error);
           return;
-        } else if (!(res.authToken === undefined)) {
+        } else if (res.authToken === undefined) {
           setError('There was an error, please try again');
           return;
         }
