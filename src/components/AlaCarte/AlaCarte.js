@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LoggedOutHeader from '../Headers/AppHeader';
 import { Navbar, Container, Row, Col, Form } from 'react-bootstrap';
 import Channels from '../Channels/Channels';
-import data from '../../data.js';
+import AuthApiService from '../../services/auth-api-services';
 import './AlaCarte.css';
 
 const AlaCarte = ({ token, setToken }) => {
   const [total, setTotal] = useState(0);
   const [channels, setChannels] = useState({});
+  const [apiChannels, setApiChannels] = useState();
   const premium = 5;
   const standard = 3;
   const value = 1;
+
+  useEffect(() => {
+    AuthApiService.channelsService().then((res) => {
+      setApiChannels(res.channels);
+    });
+  }, []);
 
   const addChannel = (evt, tier) => {
     const newChannel = evt.target.value;
@@ -66,9 +73,17 @@ const AlaCarte = ({ token, setToken }) => {
                     onChange={(evt) => addChannel(evt, premium)}
                   >
                     <option></option>
-                    {Object.keys(data.premium).map((item, idx) => (
-                      <option key={idx}>{item}</option>
-                    ))}
+                    {apiChannels === undefined ? (
+                      <options></options>
+                    ) : (
+                      apiChannels
+                        .filter((channel) => {
+                          return channel.tier === 'Premium';
+                        })
+                        .map((channel) => (
+                          <option key={channel.id}>{channel.channel}</option>
+                        ))
+                    )}
                   </Form.Control>
                 </Form.Group>
               </Col>
@@ -80,9 +95,17 @@ const AlaCarte = ({ token, setToken }) => {
                     onChange={(evt) => addChannel(evt, standard)}
                   >
                     <option></option>
-                    {Object.keys(data.standard).map((item, idx) => (
-                      <option key={idx}>{item}</option>
-                    ))}
+                    {apiChannels === undefined ? (
+                      <options></options>
+                    ) : (
+                      apiChannels
+                        .filter((channel) => {
+                          return channel.tier === 'Standard';
+                        })
+                        .map((channel) => (
+                          <option key={channel.id}>{channel.channel}</option>
+                        ))
+                    )}
                   </Form.Control>
                 </Form.Group>
               </Col>
@@ -94,9 +117,17 @@ const AlaCarte = ({ token, setToken }) => {
                     onChange={(evt) => addChannel(evt, value)}
                   >
                     <option></option>
-                    {Object.keys(data.value).map((item, idx) => (
-                      <option key={idx}>{item}</option>
-                    ))}
+                    {apiChannels === undefined ? (
+                      <options></options>
+                    ) : (
+                      apiChannels
+                        .filter((channel) => {
+                          return channel.tier === 'Value';
+                        })
+                        .map((channel) => (
+                          <option key={channel.id}>{channel.channel}</option>
+                        ))
+                    )}
                   </Form.Control>
                 </Form.Group>
               </Col>

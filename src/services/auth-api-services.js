@@ -42,6 +42,17 @@ const AuthApiService = {
             );
     });
   },
+  channelsService() {
+    return fetch(`${apiAddress}/api/channels`)
+      .then((res) => {
+        return res.ok
+          ? res.json()
+          : res.json().catch((err) => Promise.reject(err));
+      })
+      .catch((err) => {
+        return err;
+      });
+  },
 };
 
 export default AuthApiService;
