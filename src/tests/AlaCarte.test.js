@@ -1,21 +1,30 @@
 import React from 'react';
 import AlaCarte from '../components/AlaCarte/AlaCarte';
 import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import AuthApiService from '../services/auth-api-services';
+import { MemoryRouter } from 'react-router-dom';
+
 jest.mock('../services/auth-api-services');
 
 describe('AlaCarte component', () => {
   let wrapper;
 
-  beforeEach(() => {
-    wrapper = mount(<AlaCarte />);
+  beforeEach(async () => {
+    await act(async () => {
+      wrapper = mount(
+        <MemoryRouter initialEntries={['/alacart']}>
+          <AlaCarte />
+        </MemoryRouter>
+      );
+    });
   });
-
   afterEach(() => {
     wrapper.unmount();
   });
+
   it('should have channels to select', () => {
-    AuthApiService.channelsService = jest.mock(() => {
+    AuthApiService.channelsService = () => {
       return Promise.resolve({
         channels: [
           {
@@ -32,12 +41,18 @@ describe('AlaCarte component', () => {
           },
         ],
       });
-    });
-    expect(AuthApiService.channelsService).toHaveBeenCalled();
-    //mock api Service
-    //return data from mock
-    //make sure data in mock is called.
+    };
+
+    wrapper.update();
+    const select = wrapper.find('option').at(1);
+    console.log(select.debug());
+    expect(select.text()).toEqual('HBO');
   });
-  it('should list channels if they are selected', () => {});
-  it('should have correct total for channels selected', () => {});
+  it('should list selected channels and have correct price', () => {
+    //find select options
+    // select hbo option inside an act
+    //update wrapper
+    //make sure channel now shows
+    //make sure price is correct
+  });
 });
