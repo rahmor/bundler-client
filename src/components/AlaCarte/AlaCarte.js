@@ -141,7 +141,7 @@ const AlaCarte = ({ token, setToken }) => {
               <Row>
                 {Object.keys(channels).map((channel, idx) => {
                   return (
-                    <Col md={2} key={idx}>
+                    <Col md={3} sm={6} xl={2} key={idx}>
                       <Channels
                         removeChannel={() => removeChannel(channel)}
                         icon={channel}
