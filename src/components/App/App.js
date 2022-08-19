@@ -35,7 +35,7 @@ const App = () => {
       <Switch>
         <Route exact path='/'>
           <header className='App-header'>
-            <div className='App-hero-image'>
+            <div className='App-header-hero-image'>
               <Navbar className='App-navbar'>
                 <NavDropdown
                   title={
@@ -75,7 +75,7 @@ const App = () => {
                         Bundler is the best way to watch television
                       </h2>
                       <p className='App-grey'>
-                        Pay for only the channels you want
+                        Pay only for the channels you want
                       </p>
                       <Link to='/alacarte'>
                         <Button variant='primary'>Browse Channels</Button>
