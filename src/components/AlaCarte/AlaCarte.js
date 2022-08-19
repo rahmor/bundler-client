@@ -7,7 +7,7 @@ import './AlaCarte.css';
 
 const AlaCarte = ({ token, setToken }) => {
   const [total, setTotal] = useState(0);
-  const [channels, setChannels] = useState({});
+  const [userChannels, setUserChannels] = useState({});
   const [apiChannels, setApiChannels] = useState();
   const premium = 5;
   const standard = 3;
@@ -23,7 +23,7 @@ const AlaCarte = ({ token, setToken }) => {
     const newChannel = evt.target.value;
     evt.target.value = '';
 
-    setChannels((prevState) => {
+    setUserChannels((prevState) => {
       if (prevState.hasOwnProperty(newChannel)) {
         return prevState;
       } else if (newChannel === '') {
@@ -36,13 +36,13 @@ const AlaCarte = ({ token, setToken }) => {
   };
 
   const removeChannel = (icon) => {
-    const price = channels[icon];
+    const price = userChannels[icon];
 
     setTotal((prevState) => {
       return prevState - price;
     });
 
-    setChannels((prevState) => {
+    setUserChannels((prevState) => {
       delete prevState[icon];
       return prevState;
     });
@@ -74,7 +74,7 @@ const AlaCarte = ({ token, setToken }) => {
                   >
                     <option></option>
                     {apiChannels === undefined ? (
-                      <options></options>
+                      <option></option>
                     ) : (
                       apiChannels
                         .filter((channel) => {
@@ -96,7 +96,7 @@ const AlaCarte = ({ token, setToken }) => {
                   >
                     <option></option>
                     {apiChannels === undefined ? (
-                      <options></options>
+                      <option></option>
                     ) : (
                       apiChannels
                         .filter((channel) => {
@@ -118,14 +118,16 @@ const AlaCarte = ({ token, setToken }) => {
                   >
                     <option></option>
                     {apiChannels === undefined ? (
-                      <options></options>
+                      <option></option>
                     ) : (
                       apiChannels
                         .filter((channel) => {
                           return channel.tier === 'Value';
                         })
                         .map((channel) => (
-                          <option key={channel.id}>{channel.channel}</option>
+                          <option id={channel.id} key={channel.id}>
+                            {channel.channel}
+                          </option>
                         ))
                     )}
                   </Form.Control>
@@ -139,12 +141,23 @@ const AlaCarte = ({ token, setToken }) => {
             {total === 0 && <h3>You have no channels</h3>}
             <Container>
               <Row>
-                {Object.keys(channels).map((channel, idx) => {
+                {Object.keys(userChannels).map((channel, idx) => {
+                  /* apiChannels is an array of objects.  I need to get object
+                  that has channel prop from array */
+                  //create helper method, for each object in array, if each.channel = chanenel
+                  //return each.address and pass into component
+                  let address;
+                  apiChannels.forEach((apiChannel) => {
+                    if (apiChannel.channel === channel) {
+                      address = apiChannel.address;
+                    }
+                  });
                   return (
                     <Col md={2} key={idx}>
                       <Channels
                         removeChannel={() => removeChannel(channel)}
                         icon={channel}
+                        address={address}
                       ></Channels>
                     </Col>
                   );
