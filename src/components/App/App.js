@@ -12,6 +12,7 @@ import PublicRoute from '../../utils/PublicRoute';
 import {
   Navbar,
   NavDropdown,
+  Nav,
   Button,
   Container,
   Row,
@@ -47,19 +48,19 @@ const App = () => {
                   }
                 >
                   {token ? (
-                    <NavDropdown.Item>
+                    <Nav.Item>
                       <Link onClick={logOut} to='/'>
                         Log Out
                       </Link>
-                    </NavDropdown.Item>
+                    </Nav.Item>
                   ) : (
                     <>
-                      <NavDropdown.Item>
+                      <Nav.Item>
                         <Link to='/login'>Log In</Link>
-                      </NavDropdown.Item>
-                      <NavDropdown.Item>
+                      </Nav.Item>
+                      <Nav.Item>
                         <Link to='/signup'>Sign Up</Link>
-                      </NavDropdown.Item>
+                      </Nav.Item>
                     </>
                   )}
                 </NavDropdown>

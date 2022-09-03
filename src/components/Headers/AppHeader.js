@@ -1,6 +1,6 @@
 import React from 'react';
 import TokenService from '../../services/token-service';
-import { Navbar, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -24,19 +24,19 @@ const AppHeader = ({ token, setToken }) => {
         }
       >
         {token ? (
-          <NavDropdown.Item>
+          <Nav.Item>
             <Link onClick={logOut} to='/'>
               Log Out
             </Link>
-          </NavDropdown.Item>
+          </Nav.Item>
         ) : (
           <>
-            <NavDropdown.Item>
+            <Nav.Item>
               <Link to='/login'>Log In</Link>
-            </NavDropdown.Item>
-            <NavDropdown.Item>
+            </Nav.Item>
+            <Nav.Item>
               <Link to='/signup'>Sign Up</Link>
-            </NavDropdown.Item>
+            </Nav.Item>
           </>
         )}
       </NavDropdown>
