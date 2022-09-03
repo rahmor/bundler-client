@@ -142,14 +142,10 @@ const AlaCarte = ({ token, setToken }) => {
             <Container>
               <Row>
                 {Object.keys(userChannels).map((channel, idx) => {
-                  /* apiChannels is an array of objects.  I need to get object
-                  that has channel prop from array */
-                  //create helper method, for each object in array, if each.channel = chanenel
-                  //return each.address and pass into component
-                  let address;
+                  let youtubeaddress;
                   apiChannels.forEach((apiChannel) => {
                     if (apiChannel.channel === channel) {
-                      address = apiChannel.address;
+                      youtubeaddress = apiChannel.youtubeaddress;
                     }
                   });
                   return (
@@ -157,7 +153,7 @@ const AlaCarte = ({ token, setToken }) => {
                       <Channels
                         removeChannel={() => removeChannel(channel)}
                         icon={channel}
-                        address={address}
+                        youtubeaddress={youtubeaddress}
                       ></Channels>
                     </Col>
                   );
