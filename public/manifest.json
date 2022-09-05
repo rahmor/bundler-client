@@ -1,19 +1,34 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Bundler",
+  "name": "Cable channel Bundler",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "package128.ico",
+      "sizes": "128x128",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "package72.ico",
+      "sizes": "72x72",
+      "type": "image/x-icon"
     },
     {
-      "src": "logo512.png",
+      "src": "package64.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "package48.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "package128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "package512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
