@@ -14,6 +14,7 @@ const Channels = ({ removeChannel, icon, youtubeaddress }) => {
             alt={icon}
             className={'Channel-icon'}
           ></img>
+          <br/>
           <a href={youtubeaddress} target='_blank' rel='noreferrer'>preview</a>
         </Toast.Body>
       </Toast>

@@ -149,7 +149,7 @@ const AlaCarte = ({ token, setToken }) => {
                     }
                   });
                   return (
-                    <Col md={3} sm={6} xl={2} key={idx}>
+                    <Col className='pb-3' sm={6} md={4} lg={3} xl={2} key={idx} >
                       <Channels
                         removeChannel={() => removeChannel(channel)}
                         icon={channel}
