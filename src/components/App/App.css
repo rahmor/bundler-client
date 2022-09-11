@@ -85,7 +85,7 @@
 
   .App-header-hero-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
-      url('../../assets/livingroomHero.jpg');
+      image-set(url('../../assets/livingroomHero2.jpg')2x, url('../../assets/livingroomHero1.jpg')1x);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
