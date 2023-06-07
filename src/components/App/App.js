@@ -73,13 +73,13 @@ const App = () => {
                   <Row>
                     <Col>
                       <h2 className='App-header-title'>
-                        Bundler is the best way to watch television
+                        Bundler is the best way to watch tv
                       </h2>
                       <p className='App-grey'>
-                        Pay only for the channels you want
+                        Only pay for the channels you watch
                       </p>
                       <Link to='/alacarte'>
-                        <Button variant='primary'>Browse Channels</Button>
+                        <Button variant='primary'>Build you plan</Button>
                       </Link>
                     </Col>
                   </Row>
