@@ -11,29 +11,29 @@ const Footer = () => {
             <div>
               <ul>
                 <li>
-                  <a href='/about' title=''>
+                  <p >
                     About
-                  </a>
+                  </p>
                   <ul>
                     <li>
-                      <a href='/corporate' title=''>
+                      <a href='/' title=''>
                         Corporate
                       </a>
                     </li>
                     <li>
-                      <a href='/legal' title=''>
+                      <a href='/' title=''>
                         Legal Notices
                       </a>
                     </li>
                     <li>
-                      <a href='/terms'>Terms of Use</a>
+                      <a href='/'>Terms of Use</a>
                     </li>
                     <li>
-                      <a href='/privacy-policy'>Privacy Policy</a>
+                      <a href='/'>Privacy Policy</a>
                     </li>
                     <li>
-                      <a href='/sponsors' title=''>
-                        Sponsorship
+                      <a href='/' title=''>
+                        Sponsors
                       </a>
                     </li>
                   </ul>
@@ -44,9 +44,9 @@ const Footer = () => {
           <Col>
             <ul>
               <li>
-                <a href='/friends' title=''>
+                <p>
                   Friends
-                </a>
+                </p>
                 <ul>
                   <li>
                     <a
@@ -98,9 +98,9 @@ const Footer = () => {
           <Col>
             <ul>
               <li>
-                <a href='/social' title=''>
+                <p >
                   Social
-                </a>
+                </p>
                 <ul>
                   <li>
                     <a href='https://www.facebook.com' title=''>
