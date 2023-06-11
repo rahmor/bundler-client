@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AppHeader from '../Headers/AppHeader';
+import AppNavBar from '../Headers/AppNavBar';
 import AuthApiService from '../../services/auth-api-services';
 import TokenService from '../../services/token-service';
 import Footer from '../Footer/Footer';
@@ -7,7 +7,7 @@ import './Users.css';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import _ from 'lodash';
 
-const Login = ({ history, setToken }) => {
+const Login = ({ history, setToken, token, logOut }) => {
   const [error, setError] = useState(null);
 
   const handleSubmit = (evt) => {
@@ -34,7 +34,11 @@ const Login = ({ history, setToken }) => {
 
   return (
     <div className='Users'>
-      <AppHeader />
+      <AppNavBar 
+        token={token}
+        setToken={setToken}
+        logOut={logOut} 
+      />
       <h1 className='text-center font-weight-bold'>LOG IN TO BUNDLER</h1>
       <Container className='Users-border Users-form mt-5 mb-5 '>
         <Row>

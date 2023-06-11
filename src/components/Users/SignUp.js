@@ -2,13 +2,13 @@ import React from 'react';
 import { useState } from 'react';
 import AuthApiService from '../../services/auth-api-services';
 import TokenService from '../../services/token-service';
-import LoggedOutHeader from '../Headers/AppHeader';
+import AppNavBar from '../Headers/AppNavBar';
 import Footer from '../Footer/Footer';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import _ from 'lodash';
 import './Users.css';
 
-const SignUp = ({ history, setToken }) => {
+const SignUp = ({ history, token, setToken, logOut }) => {
   const [error, setError] = useState(null);
 
   const handleSubmit = (evt) => {
@@ -35,7 +35,10 @@ const SignUp = ({ history, setToken }) => {
 
   return (
     <div className='Users'>
-      <LoggedOutHeader />
+      <AppNavBar token={token}
+        setToken={setToken}
+        logOut={logOut} 
+      />
       <h1 className='text-center font-weight-bold'>REGISTER WITH BUNDLER</h1>
       <Container className='Users-border Users-form mt-5 mb-5'>
         <Row>

@@ -5,6 +5,7 @@ export default function PrivateRoute({
   component,
   token,
   setToken,
+  logOut,
   apiChannels,
   ...props
 }) {
@@ -15,7 +16,7 @@ export default function PrivateRoute({
       apiChannels={apiChannels}
       render={(componentProps) =>
         token ? (
-          <Component token={token} setToken={setToken} {...componentProps} />
+          <Component token={token} setToken={setToken} logOut={logOut} {...componentProps} />
         ) : (
           <Redirect
             to={{

@@ -12,17 +12,15 @@
   color: white;
 }
 
-.App-title {
-  color: white;
-}
-
-.App-navbar {
-  display: flex;
-  justify-content: space-between;
-}
-
 .dropdown-toggle::after {
   display: none;
+}
+
+hr {
+  border: 0;
+  height:5px;
+  background-color: #343a40;
+  margin: 0;
 }
 
 .App-header-copy {
@@ -61,6 +59,7 @@
 
 .App-devices-panel {
   text-align: center;
+  color:white;
 }
 
 .App-devices-panel-heading-container {
@@ -98,13 +97,13 @@
   .App-header-copy {
     top: 50%;
   }
-
-  .App-navbar {
-    margin: 0 5% 0 5%;
-  }
-
   .App-header-title {
     font-size: 2.5em;
+  }
+
+  .App-title-hidden {
+    display: block;
+    position:relative;
   }
 
   .App-cable-provider-panel {

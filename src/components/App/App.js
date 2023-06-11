@@ -8,6 +8,8 @@ import SignUp from '../Users/SignUp';
 import Login from '../Users/Login';
 import PrivateRoute from '../../utils/PrivateRoute';
 import PublicRoute from '../../utils/PublicRoute';
+import AppNavBar from '../Headers/AppNavBar';
+import './App.css';
 
 import {
   Navbar,
@@ -19,9 +21,10 @@ import {
   Col,
 } from 'react-bootstrap';
 import { Route, Link, Switch } from 'react-router-dom';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle, faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './App.css';
+import { HashLink } from 'react-router-hash-link';
+
 
 const App = () => {
   const [token, setToken] = useState(TokenService.hasAuthToken());
@@ -37,37 +40,12 @@ const App = () => {
         <Route exact path='/'>
           <header className='App-header'>
             <div className='App-header-hero-image'>
-              <Navbar className='App-navbar'>
-                <NavDropdown
-                  title={
-                    <FontAwesomeIcon
-                      icon={faBars}
-                      style={{ fontSize: '2.5em', color: 'white' }}
-                      data-testid='hamburger-menu'
-                    />
-                  }
-                >
-                  {token ? (
-                    <Nav.Item>
-                      <Link onClick={logOut} to='/'>
-                        Log Out
-                      </Link>
-                    </Nav.Item>
-                  ) : (
-                    <>
-                      <Nav.Item>
-                        <Link to='/login'>Log In</Link>
-                      </Nav.Item>
-                      <Nav.Item>
-                        <Link to='/signup'>Sign Up</Link>
-                      </Nav.Item>
-                    </>
-                  )}
-                </NavDropdown>
-                <Link to='/'>
-                  <h1 className='App-title'>Bundler</h1>
-                </Link>
-              </Navbar>
+              <AppNavBar 
+                token={token}
+                setToken={setToken}
+                logOut={logOut} 
+              />
+              <hr></hr>
               <div className='App-header-copy'>
                 <Container>
                   <Row>
@@ -95,12 +73,16 @@ const App = () => {
         </Route>
         <PublicRoute
           path='/login'
+          token={token}
           setToken={setToken}
+          logOut={logOut}
           component={Login}
         ></PublicRoute>
         <PublicRoute
           path='/signup'
+          token={token}
           setToken={setToken}
+          logOut={logOut}
           component={SignUp}
         ></PublicRoute>
         <PublicRoute exact path='/alacarte' component={AlaCarte}></PublicRoute>
@@ -108,6 +90,7 @@ const App = () => {
           path='/alacarte/:id'
           token={token}
           setToken={setToken}
+          logOut={logOut}
           component={AlaCarte}
         ></PrivateRoute>
       </Switch>
