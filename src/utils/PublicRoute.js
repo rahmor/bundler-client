@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import TokenService from '../services/token-service';
 
-export default function PublicRoute({ component, setToken, ...props }) {
+export default function PublicRoute({ component, token, logOut, setToken, ...props }) {
   const Component = component;
   let userId;
   if (TokenService.getToken()) {
@@ -16,7 +16,7 @@ export default function PublicRoute({ component, setToken, ...props }) {
         TokenService.hasAuthToken() ? (
           <Redirect to={`/alacarte/${userId}`} />
         ) : (
-          <Component setToken={setToken} {...componentProps} />
+          <Component token={token} setToken={setToken} logOut={logOut}  {...componentProps} />
         )
       }
     />

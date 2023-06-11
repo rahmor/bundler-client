@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Headers.css';
 import '../App/App.css';
 
-const AppHeader = ({ token, setToken }) => {
+const AlaCarteNavBar = ({ token, setToken }) => {
   const logOut = () => {
     TokenService.deleteToken();
     setToken(false);
@@ -47,4 +47,4 @@ const AppHeader = ({ token, setToken }) => {
   );
 };
 
-export default AppHeader;
+export default AlaCarteNavBar;

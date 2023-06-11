@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import LoggedOutHeader from '../Headers/AppHeader';
+import AlaCarteNavBar from '../Headers/AlaCarteNavBar';
+import AppNavBar from '../Headers/AppNavBar';
 import { Navbar, Container, Row, Col, Form } from 'react-bootstrap';
 import Channels from '../Channels/Channels';
 import AuthApiService from '../../services/auth-api-services';
 import './AlaCarte.css';
 
-const AlaCarte = ({ token, setToken }) => {
+const AlaCarte = ({ token, setToken, logOut }) => {
   const [total, setTotal] = useState(0);
   const [userChannels, setUserChannels] = useState({});
   const [apiChannels, setApiChannels] = useState();
@@ -50,7 +51,11 @@ const AlaCarte = ({ token, setToken }) => {
 
   return (
     <>
-      <LoggedOutHeader token={token} setToken={setToken} />
+      <AppNavBar 
+        token={token}
+        setToken={setToken}
+        logOut={logOut} 
+      />
       <Navbar
         bg='dark'
         variant='dark'
