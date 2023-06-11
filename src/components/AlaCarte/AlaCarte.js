@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import AlaCarteNavBar from '../Headers/AlaCarteNavBar';
 import AppNavBar from '../Headers/AppNavBar';
 import { Navbar, Container, Row, Col, Form } from 'react-bootstrap';
 import Channels from '../Channels/Channels';
