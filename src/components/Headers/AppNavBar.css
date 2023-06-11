@@ -1,0 +1,46 @@
+.App-logo {
+  display:flex;
+  align-items: center;
+}
+.App-title {
+  color: black;
+  margin: 0px 5px 0px 5px;
+}
+
+.App-title-hidden {
+  display: none;
+  position:absolute;
+}
+
+.App-navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 0;
+  padding-left: 0.5em;
+}
+
+.App-bars-container {
+  display:flex;
+}
+
+.App-bars-container a {
+  padding: 0;
+}
+
+.App-user-dropdown a{
+  padding:0;
+  padding-right: 0.5em;
+}
+
+@media only screen and (min-width: 768px) {
+
+  .App-navbar {
+    padding: 0.5rem 1rem;
+  }
+
+  .App-bars-container {
+    display:none;
+    position: absolute;
+  }
+}

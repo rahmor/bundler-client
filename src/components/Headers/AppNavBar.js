@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App/App.css';
+import './AppNavBar.css';
 
 import { HashLink } from 'react-router-hash-link';
 import {
