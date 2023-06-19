@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, screen, cleanup } from '@testing-library/react';
+import { render, screen, cleanup } from '@testing-library/react';
 import App from '../components/App/App';
 import { MemoryRouter } from 'react-router-dom';
 
@@ -21,8 +21,8 @@ describe('Logged Out App component', () => {
   });
 
   it('should show Browse Channels button', () => {
-    const linkElement = screen.queryByText(/Browse Channels/i);
-    expect(linkElement).toBeInTheDocument();
+    const linkElement = screen.queryAllByText(/Build your plan/i);
+    expect(linkElement[1]).toBeInTheDocument();
   });
 
 });

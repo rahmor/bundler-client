@@ -57,7 +57,7 @@ const App = () => {
                         Only pay for the channels you watch
                       </p>
                       <Link to='/alacarte'>
-                        <Button variant='primary'>Build you plan</Button>
+                        <Button variant='primary'>Build your plan</Button>
                       </Link>
                     </Col>
                   </Row>
