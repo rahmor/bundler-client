@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const DevicesPanel = () => {
   return (
-    <section className='App-devices-panel'>
+    <section className='App-devices-panel' id='App-devices-panel'>
       <Container fluid className='App-devices-panel-heading-container'>
         <Row>
           <Col className={'p-5'}>
